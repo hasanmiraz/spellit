@@ -30,10 +30,11 @@ def get_log_data():
 
 
 def get_data():
+    global data
+    global total_data
     with open("final_data.json", "r") as data_f:
         data = json.load(data_f)
         total_data = len(data)
-        return data, total_data
 
 def save_data(word, url, type):
     global failed_dict
@@ -63,12 +64,16 @@ def write_mp3(word, mp3):
     with open(filepath, 'wb') as file:
         file.write(mp3)
 
+
 def process():
+    global data
+    global total_data
+
     create_folders()
     get_log_data()
-    data, total_data = get_data()
+    get_data()
 
-    break_at = 5
+    # break_at = 5
 
     count_data = 0
     for word, url in data.items():
