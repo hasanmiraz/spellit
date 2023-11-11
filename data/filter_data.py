@@ -55,7 +55,5 @@ class FilterData:
         self.alphabatical_threading_data()
         self.save_json_file(self.save_data_path)
         
-
-
 f = FilterData()
 f.process()
